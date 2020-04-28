@@ -57,6 +57,8 @@ where
             Ok(())
         })
     }
+
+    fn version<'a>(&'a self) -> DBIO<'a, Option<String>>;
 }
 
 /// A thing that can start a new transaction.

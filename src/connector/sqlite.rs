@@ -202,6 +202,10 @@ impl Queryable for Sqlite {
             Ok(())
         })
     }
+
+    fn version<'a>(&'a self) -> DBIO<'a, Option<String>> {
+        DBIO::new(async { Ok(Some(rusqlite::version().into())) })
+    }
 }
 
 #[cfg(test)]
